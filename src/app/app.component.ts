@@ -17,4 +17,5 @@ export class AppComponent implements OnInit, OnDestroy {
       clearInterval(this.intervalSub);
     }
   }
+  title = "HelloWorld!"
 }
