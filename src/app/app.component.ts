@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'learning-angular';
+export class AppComponent implements OnInit, OnDestroy{
+  intervalSub: any;
+  ngOnInit() {
+    this.intervalSub = setInterval(() => {
+      console.log('Hello from ngOnInit')
+    }, 1000)
+  }
+  ngOnDestroy() {
+    if(this.intervalSub) {
+      clearInterval(this.intervalSub)
+    }
+  }
+
 }
